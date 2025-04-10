@@ -24,4 +24,5 @@ urlpatterns = [
     path("boomgardi/", include("boomgardi.urls")),
     path("villa/", include("villa.urls")),
     path("colbe/", include("colbe.urls")),
+    
 ]

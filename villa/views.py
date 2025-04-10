@@ -1,7 +1,7 @@
 from django.http.response import JsonResponse
 from villa.models import Villa
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from villa.serilaizers import  VillaSerializer
 
 def villas_with_pool(request):
@@ -100,3 +100,32 @@ def list_villa(request):
 class ListVillaView(ListAPIView):
     queryset = Villa.objects.all()
     serializer_class = VillaSerializer
+    
+    
+class CreatVillaView(CreateAPIView):
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer
+    
+    
+    
+    
+class RetrieveVillaView(RetrieveAPIView) :
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer
+
+class DeleteVillaView(DestroyAPIView) :
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer
+    
+class UpdateVillaView(UpdateAPIView) :
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer
+
+
+class CreateListVillaView(ListCreateAPIView):
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer
+    
+class RetriveUpdateDeleteVillaView(RetrieveUpdateDestroyAPIView):
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer  
