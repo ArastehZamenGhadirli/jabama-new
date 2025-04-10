@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import villas_beachfront, villas_party_friendly, villas_pet_friendly, villas_with_entertainment, villas_with_pool
+from .views import villas_beachfront, villas_party_friendly, villas_pet_friendly, villas_with_entertainment, ListVillaView,villas_with_pool
 
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path("villapet/", villas_pet_friendly),
     path("villa/", villas_with_entertainment),
     path("villapooli/", villas_with_pool),
+    path('new-list', ListVillaView.as_view())
 ]

@@ -4,3 +4,4 @@ from django.http.response import HttpResponse
 
 def cottage(response):
     return HttpResponse("کلبه کلبه")
+

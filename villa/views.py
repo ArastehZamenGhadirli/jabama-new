@@ -1,4 +1,8 @@
 from django.http.response import JsonResponse
+from villa.models import Villa
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.generics import ListAPIView
+from villa.serilaizers import  VillaSerializer
 
 def villas_with_pool(request):
     data = [
@@ -84,3 +88,15 @@ def villas_party_friendly(request):
         }
     ]
     return JsonResponse(data, safe=False)
+
+
+
+def list_villa(request):
+    all_villas = Villa.objects.all().values("name","description")
+    all_villas = list(all_villas)
+    return  JsonResponse(all_villas ,safe=True)
+
+
+class ListVillaView(ListAPIView):
+    queryset = Villa.objects.all()
+    serializer_class = VillaSerializer

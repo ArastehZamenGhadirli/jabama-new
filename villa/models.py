@@ -24,7 +24,7 @@ class Villa(models.Model):
     is_for_parties = models.BooleanField(default=False)
     owner =models.ForeignKey(to=Owner, on_delete=models.CASCADE)
     user =models.ForeignKey(to=User, on_delete=models.CASCADE)
-
+    
 
 class Rent(models.Model):
     '''
